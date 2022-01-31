@@ -5,7 +5,7 @@ const game = {
   secretNum: null,
   prevGuesses: [],
 
-  getGuess: function() {
+  getGuess: function () {
     let guess
     while (isNaN(guess) || guess < this.smallestNum || guess > this.biggestNum) {
 
@@ -19,7 +19,7 @@ const game = {
   play: function () {
     this.secretNum = Math.floor(Math.random() *
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-      console.log(this.secretNum)
+    console.log(this.secretNum)
     while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum) {
       this.prevGuesses.push(this.getGuess())
       console.log(this.prevGuesses)
@@ -27,7 +27,7 @@ const game = {
     }
   },
 
-  render: function() {
+  render: function () {
     if (this.prevGuesses[this.prevGuesses.length - 1] > this.secretNum) {
       alert(`Guess is too high. Previous guesses: ${this.prevGuesses.join(', ')}.`)
     }
@@ -38,27 +38,27 @@ const game = {
       alert(`You guessed the secret number in ${this.prevGuesses.length} tries!`)
     }
   },
-  adjustRange: function(guess) {
+
+  changeRange: function (guess) {
     if (guess > this.smallestNum && guess < this.secretNum) {
-      this.smallestNum = guess 
+      this.smallestNum = guess
     } else if (guess < this.biggestNum && guess > this.secretNum) {
       this.biggestNum = guess
     }
-  }, 
-  setRange: function() {
-    let lowest, highest = null 
+  },
+
+  setRange: function () {
+    let lowest, highest = null
     while (isNaN(lowest) || isNaN(highest) || lowest > highest || lowest === highest) {
       lowest = parseInt(prompt(`Enter a lower limit.`))
       highest = parseInt(prompt(`Enter an upper limit.`))
     }
     this.smallestNum = lowest
-    this.biggestNum = highest 
+    this.biggestNum = highest
   }
 }
 
 game.play()
-
-
 
 // STEPS 
 
@@ -97,8 +97,6 @@ game.play()
 // MORE BONUS 
 
 // when play is run, immediately prompt the player to enter the smallest and biggest number instead of pre-setting values 
-
-
 
 
 // OBJECTIVES 
