@@ -98,7 +98,6 @@ game.play()
 
 // when play is run, immediately prompt the player to enter the smallest and biggest number instead of pre-setting values 
 
-
 // OBJECTIVES 
 
 // Allow player to continually be prompted to enter their guess (until they guess correctly)
